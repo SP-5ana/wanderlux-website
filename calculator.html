@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Trip Cost Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>Trip Cost Calculator</h2>
+  <form>
+    <label>Destination: <input type="text" id="destination"></label><br>
+    <label>Travellers: <input type="number" id="travellers"></label><br>
+    <label>Days: <input type="number" id="days"></label><br>
+    <label>Style:
+      <select id="style">
+        <option value="budget">Budget</option>
+        <option value="standard">Standard</option>
+        <option value="luxury">Luxury</option>
+      </select>
+    </label><br>
+    <button type="button" onclick="calculate()">Calculate</button>
+  </form>
+  <p id="result"></p>
+
+  <script>
+    function calculate() {
+      const dest = document.getElementById("destination").value;
+      const travellers = parseInt(document.getElementById("travellers").value);
+      const days = parseInt(document.getElementById("days").value);
+      const style = document.getElementById("style").value;
+
+      let baseRate = 100; // per day per traveller
+      let multiplier = style === "budget" ? 0.8 : style === "luxury" ? 1.5 : 1.0;
+
+      let total = travellers * days * baseRate * multiplier;
+
+      document.getElementById("result").innerText =
+        `Estimated cost for ${travellers} travellers to ${dest} for ${days} days: $${total} - ${style} package.`;
+    }
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
