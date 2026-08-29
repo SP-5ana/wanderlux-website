@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WanderLux Travel Agency</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>WanderLux Travel Agency</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="services.html">Destinations</a>
+      <a href="calculator.html">Trip Cost Calculator</a>
+      <a href="appointment.html">Appointment</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section>
+    <h2>Welcome to WanderLux</h2>
+    <p>At WanderLux, we believe every journey should be more than just travel —
+    it should be an unforgettable experience. Whether you dream of relaxing
+    on tropical beaches, exploring historic cities, or discovering hidden
+    gems across the globe, our team of expert consultants is here to design
+    the perfect trip for you.</p>
+    <p>From personalised holiday packages to guided tours and luxury escapes,
+    WanderLux is your trusted partner in creating memories that last a
+    lifetime. Start your adventure today and let us turn your travel dreams
+    into reality.</p>
+    <div class="banner">
+      <p>🌴 Bali • 🗼 Paris • 🏔️ Swiss Alps</p>
+    </div>
+  </section>
+  <section class="banner">
+  <img id="banner-image" src="images/bali.jpg" alt="Bali" />
+</section>
+
+<script>
+  const images = [
+    { src: "images/bali1.jpg", alt: "Bali Paradise" },
+    { src: "images/paris1.jpg", alt: "Paris Eiffel Tower" },
+    { src: "images/bali2.jpg", alt: "Bali Paradise" },
+    { src: "images/paris2.jpg", alt: "Paris Eiffel Tower" },
+  ];
+
+  let index = 0;
+  function rotateImages() {
+    const banner = document.getElementById("banner-image");
+    banner.src = images[index].src;
+    banner.alt = images[index].alt;
+    index = (index + 1) % images.length;
+  }
+
+  // Change image every 4 seconds
+  setInterval(rotateImages, 4000);
+
+  // Show first image immediately
+  rotateImages();
+</script>
+
+</body>
+</html>
